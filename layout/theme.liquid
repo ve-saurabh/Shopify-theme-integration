@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
-
+    {{ 'custom.css' |  asset_url | stylesheet_tag }}
+    {{ 'plugins.css' | asset_url | stylesheet_tag: { media: 'screen' }} 
+    {{ 'base-copy.css' | asset_url | stylesheet_tag: { media: 'screen' }}
+    {{ 'cwr-cart-page.css' | asset_url | stylesheet_tag: { media: 'screen' }}
+    
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
@@ -372,5 +376,16 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    <!-- jQuery -->
+    <script src="{{ 'jquery.min.js' | asset_url }}" defer></script>
+
+    <!-- Plugins -->
+    <script src="{{ 'plugins.js' | asset_url }}" defer></script>
+    
+    <!-- Custom JS -->
+    {% if template.name == 'index' %}
+      <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
+    {% endif %}
   </body>
 </html>
