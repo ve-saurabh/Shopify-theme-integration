@@ -9,76 +9,87 @@
  */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "button"
-      ],
-      "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
+    "custom_banner_AULUKP": {
+      "type": "custom-banner",
+      "settings": {}
     },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
-      }
+    "custom_blog_xfeY8g": {
+      "type": "custom-blog",
+      "settings": {}
+    },
+    "custom_faq_6nx3hx": {
+      "type": "custom-faq",
+      "settings": {}
+    },
+    "custom_image_content2_Tw6U7B": {
+      "type": "custom-image-content2",
+      "settings": {}
+    },
+    "custom_instagram_FgBAQa": {
+      "type": "custom-instagram",
+      "settings": {}
+    },
+    "custom_newsletter_W4yFF7": {
+      "type": "custom-newsletter",
+      "settings": {}
+    },
+    "custom_reviews_dBAe8L": {
+      "type": "custom-reviews",
+      "settings": {}
+    },
+    "custom_usp_slider_nVYMYN": {
+      "type": "custom-usp-slider",
+      "settings": {}
+    },
+    "custom_choose_us_LaEmRy": {
+      "type": "custom-choose-us",
+      "settings": {}
+    },
+    "custom_new_arrivals_zkRTUM": {
+      "type": "custom-new-arrivals",
+      "settings": {}
+    },
+    "custom_products_PqzkLW": {
+      "type": "custom-products",
+      "settings": {}
+    },
+    "custom_categories_kcJYGV": {
+      "type": "custom-categories",
+      "settings": {}
+    },
+    "custom_image_content_dXjhHr": {
+      "type": "custom-image-content",
+      "settings": {}
+    },
+    "custom_marquee_slider_NRYdKt": {
+      "type": "custom-marquee-slider",
+      "settings": {}
+    },
+    "custom_logo_slider_dJVzDM": {
+      "type": "custom-logo-slider",
+      "settings": {}
+    },
+    "custom_review_A4MRDp": {
+      "type": "custom-review",
+      "settings": {}
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "custom_banner_AULUKP",
+    "custom_logo_slider_dJVzDM",
+    "custom_categories_kcJYGV",
+    "custom_marquee_slider_NRYdKt",
+    "custom_image_content_dXjhHr",
+    "custom_review_A4MRDp",
+    "custom_products_PqzkLW",
+    "custom_choose_us_LaEmRy",
+    "custom_new_arrivals_zkRTUM",
+    "custom_instagram_FgBAQa",
+    "custom_reviews_dBAe8L",
+    "custom_faq_6nx3hx",
+    "custom_image_content2_Tw6U7B",
+    "custom_usp_slider_nVYMYN",
+    "custom_newsletter_W4yFF7",
+    "custom_blog_xfeY8g"
   ]
 }
