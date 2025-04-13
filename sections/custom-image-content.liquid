@@ -2,13 +2,13 @@
     <div class="container">
         <div class="cwr-img-content__left">
             <div class="cwr-img-content__left-img">
-                <img data-src="./images/img-content-img1.jpg" alt="cwr-img-content-img" class="img-fluid lazyload"
+                <img data-src="{{ 'img-content-img1.jpg' |  file_url }}" alt="cwr-img-content-img" class="img-fluid lazyload"
                     width="745" height="804">
             </div>
             <div class="cwr-img-content__left-img2">
-                <img data-src="./images/img-content-img2.jpg" alt="cwr-img-content-img" class="img-fluid lazyload"
+                <img data-src="{{ 'img-content-img2.jpg' | file_url }}" alt="cwr-img-content-img" class="img-fluid lazyload"
                     width="228" height="236">
-                <img src="./images/img-content-img3.jpg" alt="cwr-img-content-img" class="img-fluid since-year">
+                <img src="{{ 'img-content-img3.jpg' |  file_url }}" alt="cwr-img-content-img" class="img-fluid since-year" height="" width="">
             </div>
         </div>
         <div class="row">
