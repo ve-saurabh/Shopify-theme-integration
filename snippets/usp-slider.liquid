@@ -1,0 +1,26 @@
+{% assign usp_blocks = blocks | where: "type", "usp_slider" %}
+
+{% if usp_blocks.size > 0 %}
+  <div class="container">
+    <div class="cwr-usp-slider__content js-usp-slider-content">
+      {%- for block in usp_blocks -%}
+        <div class="cwr-usp-slider__item">
+          <div class="cwr-usp-slider__item-box">
+            {%- if block.settings.image != blank -%}
+              <img
+                src="{{ block.settings.image | image_url }}"
+                alt="usp-img"
+                class="img-fluid"
+                height=""
+                width=""
+                >
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+              <span>{{ block.settings.text }}</span>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+{% endif %}

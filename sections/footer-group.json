@@ -13,7 +13,61 @@
   "sections": {
     "custom_footer_8p3qam": {
       "type": "custom-footer",
-      "settings": {}
+      "blocks": {
+        "menu_block_KgHHaB": {
+          "type": "menu_block",
+          "settings": {
+            "heading": "Main Products",
+            "menu": "main-products"
+          }
+        },
+        "menu_block_TnqPmw": {
+          "type": "menu_block",
+          "settings": {
+            "heading": "Brands",
+            "menu": "brands"
+          }
+        },
+        "menu_block_K4MFi7": {
+          "type": "menu_block",
+          "settings": {
+            "heading": "Information",
+            "menu": "information"
+          }
+        },
+        "social_block_9Aj68Q": {
+          "type": "social_block",
+          "settings": {
+            "heading": "Follow Us",
+            "show_facebook": true,
+            "facebook_url": "",
+            "facebook_label": "Facebook",
+            "show_twitter": true,
+            "twitter_url": "",
+            "twitter_label": "Twitter",
+            "show_instagram": true,
+            "instagram_url": "",
+            "instagram_label": "Instagram",
+            "show_youtube": true,
+            "youtube_url": "",
+            "youtube_label": "YouTube",
+            "show_google": true,
+            "google_url": "",
+            "google_label": "Google+"
+          }
+        }
+      },
+      "block_order": [
+        "menu_block_KgHHaB",
+        "menu_block_TnqPmw",
+        "menu_block_K4MFi7",
+        "social_block_9Aj68Q"
+      ],
+      "settings": {
+        "company_name": "Bombing Science",
+        "email": "support@bombingscience.com",
+        "privacy_policy_url": "shopify://policies/privacy-policy"
+      }
     }
   },
   "order": [

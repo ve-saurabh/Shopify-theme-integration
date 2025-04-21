@@ -1,76 +1,31 @@
 <section class="cwr-our-categories">
     <div class="container">
         <div class="sec-heading">
-            <h2 class="custom-heading-md">Explore our categories</h2>
-            <h4 class="custom-heading-sm">Transform your living spaces with sophisticated artistry</h4>
+            {%- if section.settings.main_heading != blank -%}
+                <h2 class="custom-heading-md">{{ section.settings.main_heading }}</h2>
+            {%- endif -%}
+            {%- if section.settings.sub_heading != blank -%}
+                <h4 class="custom-heading-sm">{{ section.settings.sub_heading }}</h4>
+            {%- endif -%}
         </div>
         <div class="row">
-            <div class="col-lg-4 col-6">
-                <a href="javascript:;">
-                    <div class="img-content">
-                        <div class="img-content__bg">
-                            <img data-src="{{ 'our-categories-bg-img1.jpg' |  file_url }}" alt="our-categories-bg-img"
-                                class="img-fluid lazyload" width="405" height="512">
-                        </div>
-                        <button class="img-content__btn">spray paint</button>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-6">
-                <a href="javascript:;">
-                    <div class="img-content">
-                        <div class="img-content__bg">
-                            <img data-src="{{ 'our-categories-bg-img2.jpg' |  file_url }}" alt="our-categories-bg-img"
-                                class="img-fluid lazyload" width="405" height="512">
-                        </div>
-                        <button class="img-content__btn">Markers</button>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-6">
-                <a href="javascript:;">
-                    <div class="img-content">
-                        <div class="img-content__bg">
-                            <img data-src="{{ 'our-categories-bg-img3.jpg' |  file_url }}" alt="our-categories-bg-img"
-                                class="img-fluid lazyload" width="405" height="512">
-                        </div>
-                        <button class="img-content__btn">Caps</button>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-6">
-                <a href="javascript:;">
-                    <div class="img-content">
-                        <div class="img-content__bg">
-                            <img data-src="{{ 'our-categories-bg-img4.jpg' |  file_url }}" alt="our-categories-bg-img"
-                                class="img-fluid lazyload" width="405" height="512">
-                        </div>
-                        <button class="img-content__btn">gear</button>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-6">
-                <a href="javascript:;">
-                    <div class="img-content">
-                        <div class="img-content__bg">
-                            <img data-src="{{ 'our-categories-bg-img5.jpg' |  file_url }}" alt="our-categories-bg-img"
-                                class="img-fluid lazyload" width="405" height="512">
-                        </div>
-                        <button class="img-content__btn">bundles</button>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-6">
-                <a href="javascript:;">
-                    <div class="img-content">
-                        <div class="img-content__bg">
-                            <img data-src="{{ 'our-categories-bg-img6.jpg' | file_url }}" alt="our-categories-bg-img"
-                                class="img-fluid lazyload" width="405" height="512">
-                        </div>
-                        <button class="img-content__btn">Other</button>
-                    </div>
-                </a>
-            </div>
+            {%- for block in section.blocks -%}              
+                <div class="col-lg-4 col-6">
+                    {%- if block.settings.image_link != blank -%}                        
+                        <a href="{{ block.settings.image_link }}">
+                            <div class="img-content">
+                                <div class="img-content__bg">
+                                    <img data-src="{{ block.settings.image |  image_url  }}" alt="our-categories-bg-img"
+                                        class="img-fluid lazyload" width="405" height="512">
+                                </div>
+                                {%- if block.settings.image_text != blank -%}
+                                    <button class="img-content__btn">{{ block.settings.image_text }}</button>
+                                {%- endif -%}
+                            </div>
+                        </a>
+                    {%- endif -%}
+                </div>
+            {%- endfor -%}
         </div>
     </div>
 </section>
@@ -78,7 +33,43 @@
 {% schema %}
   {
     "name": "Custom Categories",
-    "settings": [],
+    "settings": [
+        {
+            "type": "text",
+            "label": "Main Heading",
+            "id": "main_heading",
+            "default": "Explore our categories"
+        },
+        {
+            "type": "text",
+            "label": "Sub Heading",
+            "id": "sub_heading",
+            "default": "Transform your living spaces with sophisticated artistry"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "category",
+            "name": "Category Item",
+            "settings": [
+              {
+                "type": "image_picker",
+                "label": "Select Image",
+                "id": "image"
+              },
+              {
+                "type": "url",
+                "label": "Image Link",
+                "id": "image_link"
+              },
+              {
+                "type": "text",
+                "label": "Image Text",
+                "id": "image_text"
+              }
+            ],
+        }
+    ],
     "presets": [
       {
         "name": "Custom Categories"

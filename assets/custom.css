@@ -1,3 +1,9 @@
+.search-input.mobile-search,
+.cwr-best-seller-product,
+.nav-bottom {
+    width: 310px;
+}
+
 .cwr-header{
     position: relative;
 }

@@ -1,0 +1,68 @@
+<div class="container">
+        <div class="sec-heading">
+            {%- if section.settings.main_heading != blank -%}
+                <h2 class="custom-heading-md">{{ section.settings.main_heading }}</h2>
+            {%- endif -%}
+            {%- if section.settings.sub_heading != blank -%}
+                <h4 class="custom-heading-sm">{{ section.settings.sub_heading }}</h4>
+            {%- endif -%}
+        </div>
+    </div>
+    <div class="cwr-our-product__wrap js-cwr-our-product">
+        {%- for block in section.blocks -%}          
+            <div class="cwr-slick-item">
+                <div> <!-- need to mobile device  -->
+                    <div class="cwr-our-product__box">
+                        {%- if block.settings.product.url != blank -%}                            
+                            <a href="{{ block.settings.product.url }}">
+                                <figure>
+                                    {%- if block.settings.product.featured_image != blank -%}                                        
+                                        <img data-src="{{ block.settings.product.featured_image |  image_url  }}" alt="product img"
+                                            class="img-fluid lazyload" width="344" height="344">
+                                    {%- endif -%}
+                                </figure>
+                            </a>
+                        {%- endif -%}
+                        {%- if block.settings.product.tags contains "SALE" and block.settings.product.compare_at_price > block.settings.product.price -%}
+                            <span class="cwr-new-arrival cwr-sale">{{ block.settings.product.tags }}</span>
+                        {%- endif -%}
+                        {%- if block.settings.product.tags contains "New Arrival" -%}
+                            <span class="cwr-new-arrival">{{ block.settings.product.tags }}</span>
+                        {%- endif -%}
+                        <div class="cwr-our-product__box-content">
+                            <div class="cwr-rating">
+                                {% assign rating = block.settings.product.metafields.custom.rating | default: 0 | round %}
+                                <ul>
+                                    {% for i in (1..5) %}
+                                        {% if i <= rating %}
+                                            <li>
+                                                <img src="{{ 'rating-star.svg' | file_url }}" alt="filled star" class="img-fluid" height="" width="" />
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                                {%- if block.settings.product.metafields.custom.review_count != blank -%}
+                                    <span>{{ block.settings.product.metafields.custom.review_count }}</span>
+                                {%- endif -%}
+                            </div>
+                            <a href="{{ block.settings.product.url }}">
+                                {%- if block.settings.product.title != blank -%}
+                                    <h5>{{ block.settings.product.title }}</h5>
+                                {%- endif -%}
+                            </a>
+                            <div class="cwr-product-price">
+                                {%- if block.settings.product.price != blank -%}                                    
+                                    <span>
+                                        {%- if block.settings.product.compare_at_price != blank -%}
+                                            <del>{{ block.settings.product.compare_at_price | money }}</del>
+                                        {%- endif -%}
+                                        {{ block.settings.product.price | money }}
+                                    </span>
+                                {%- endif -%}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {%- endfor -%}
+    </div>

@@ -1,0 +1,31 @@
+{%- if section.settings.announcement_text != blank -%}
+  <div class="cwr-header">
+    <div class="cwr-announcement-bar">
+      <div class="container">
+        <p>{{ section.settings.announcement_text }}</p>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "custom Announcement Bar",
+    "settings": [
+      {
+        "type": "text",
+        "label": "Announcement Text",
+        "id": "announcement_text",
+        "default": "Some announcement goes here"
+      }
+    ],
+    "presets": [
+      {
+        "name": "custom Announcement Bar",
+        "settings": {
+          "announcement_text": "Some announcement goes here"
+        }
+      }
+    ]
+  }
+{% endschema %}

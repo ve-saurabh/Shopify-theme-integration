@@ -1,26 +1,29 @@
 <section class="cwr-review-sec">
     <div class="cwr-review-sec__bg">
-        <img data-src="{{ 'review-bg-img.jpg' |  file_url }}" alt="review img" class="img-fluid lazyload desktop-img"
+      {% if section.settings.image != blank %}        
+        <img data-src="{{ section.settings.image |  image_url  }}" alt="review img" class="img-fluid lazyload desktop-img"
             width="1903" height="412" />
-        <img data-src="{{ 'review-bg-img-mobile.jpg' |  file_url }}" alt="review img" class="img-fluid lazyload mobile-img"
+      {% endif %}
+      {% if section.settings.mobile_img != blank %}        
+        <img data-src="{{ section.settings.mobile_img | image_url }}" alt="review img" class="img-fluid lazyload mobile-img"
             width="720" height="489" />
-
+      {% endif %}
     </div>
     <div class="container">
         <div class="cwr-review-sec__content">
             <div class="cwr-rating">
                 <ul>
+                  {% for i in (1..5) %}
                     <li><img src="{{ 'rating-star.svg' | file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                    <li><img src="{{ 'rating-star.svg' | file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                    <li><img src="{{ 'rating-star.svg' | file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                    <li><img src="{{ 'rating-star.svg' | file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                    <li><img src="{{ 'rating-star.svg' | file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
+                  {% endfor %}
                 </ul>
             </div>
-            <p>“Seriously, these markers are god damn perfect for making custom colors along with the one4all
-                refills. I personally think getting these over the premixed one4all markers is the more efficient
-                way to go. Highly recommend these.”</p>
-            <span>wingnut</span>
+            {% if section.settings.review_text != blank %}
+              <p>{{ section.settings.review_text }}</p>
+            {% endif %}
+            {% if section.settings.name %}
+              <span>{{ section.settings.name }}</span>
+            {% endif %}
         </div>
     </div>
 </section>
@@ -28,10 +31,34 @@
 {% schema %}
   {
     "name": "Custom Review",
-    "settings": [],
+    "settings": [
+      {
+        "type": "image_picker",
+        "label": "Select Image",
+        "id": "image"
+      },
+      {
+        "type": "image_picker",
+        "label": "Select Mobile Image",
+        "id": "mobile_img"
+      },
+      {
+        "type": "textarea",
+        "label": "Review Text",
+        "id": "review_text"
+      },
+      {
+        "type": "text",
+        "label": "Reviewer Name",
+        "id": "name"
+      }
+    ],
     "presets": [
       {
-        "name": "Custom Review"
+        "name": "Custom Review",
+        "settings": {
+          "review_text": "“Seriously, these markers are god damn perfect for making custom colors along with the one4all refills. I personally think getting these over the premixed one4all markers is the more efficient way to go. Highly recommend these.”"
+        }
       }
     ]
   }

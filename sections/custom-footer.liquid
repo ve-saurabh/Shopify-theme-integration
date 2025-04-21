@@ -1,144 +1,370 @@
 <footer>
+  <div class="container">
+    <div class="footer-wrap desktop-footer">
+      {% for block in section.blocks %}
+        <div class="footer-wrap-content">
+          <h4>{{ block.settings.heading }}</h4>
+          {% if block.type == 'menu_block' %}
+            <ul>
+              {% for link in linklists[block.settings.menu].links %}
+                <li>
+                  <a href="{{ link.url }}">{{ link.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% elsif block.type == 'social_block' %}
+            <ul class="social-icon">
+              {% if block.settings.show_facebook %}
+                <li>
+                  <a href="{{ block.settings.facebook_url }}">
+                    <img
+                      src="{{ block.settings.facebook_icon | image_url: '32x32' | default: 'facebook-icon.svg' | file_url }}"
+                      alt="Facebook"
+                      class="img-fluid"
+                      height=""
+                      width="" />
+                    {{ block.settings.facebook_label }}
+                  </a>
+                </li>
+              {% endif %}
+              {% if block.settings.show_twitter %}
+                <li>
+                  <a href="{{ block.settings.twitter_url }}">
+                    <img
+                      src="{{ block.settings.twitter_icon | image_url: '32x32' | default: 'twitter-icon.svg' | file_url }}"
+                      alt="Twitter"
+                      class="img-fluid"
+                      height=""
+                      width="" />
+                    {{ block.settings.twitter_label }}
+                  </a>
+                </li>
+              {% endif %}
+              {% if block.settings.show_instagram %}
+                <li>
+                  <a href="{{ block.settings.instagram_url }}">
+                    <img
+                      src="{{ block.settings.instagram_icon | image_url: '32x32' | default: 'insta-icon.svg' | file_url }}"
+                      alt="Instagram"
+                      class="img-fluid"
+                      height=""
+                      width="" />
+                    {{ block.settings.instagram_label }}
+                  </a>
+                </li>
+              {% endif %}
+              {% if block.settings.show_youtube %}
+                <li>
+                  <a href="{{ block.settings.youtube_url }}">
+                    <img
+                      src="{{ block.settings.youtube_icon | image_url: '32x32' | default: 'youtube-icon.svg' | file_url }}"
+                      alt="YouTube"
+                      class="img-fluid"
+                      height=""
+                      width="" />
+                    {{ block.settings.youtube_label }}
+                  </a>
+                </li>
+              {% endif %}
+              {% if block.settings.show_google %}
+                <li>
+                  <a href="{{ block.settings.google_url }}">
+                    <img
+                      src="{{ block.settings.google_icon | image_url: '32x32' | default: 'google-icon.svg' | file_url }}"
+                      alt="Google+"
+                      class="img-fluid"
+                      height=""
+                      width="" />
+                    {{ block.settings.google_label }}
+                  </a>
+                </li>
+              {% endif %}
+            </ul>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+    <div class="footer-wrap footer-mobile-content">
+      {% for block in section.blocks %}
+        <div class="footer-wrap-content">
+          <h4>{{ block.settings.heading }}</h4>
+          {% if block.type == 'menu_block' %}
+            <ul>
+              {% for link in linklists[block.settings.menu].links %}
+                <li>
+                  <a href="{{ link.url }}">{{ link.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% elsif block.type == 'social_block' %}
+            <ul class="social-icon">
+              {% if block.settings.show_facebook %}
+                <li>
+                  <a href="{{ block.settings.facebook_url }}">
+                    <img
+                      src="{{ block.settings.facebook_icon | image_url: '32x32' | default: 'facebook-icon.svg' | file_url }}"
+                      alt="Facebook"
+                      class="img-fluid"
+                      height=""
+                      width="" />
+                    {{ block.settings.facebook_label }}
+                  </a>
+                </li>
+              {% endif %}
+              {% if block.settings.show_twitter %}
+                <li>
+                  <a href="{{ block.settings.twitter_url }}">
+                    <img
+                      src="{{ block.settings.twitter_icon | image_url: '32x32' | default: 'twitter-icon.svg' | file_url }}"
+                      alt="Twitter"
+                      class="img-fluid"
+                      height=""
+                      width="" />
+                    {{ block.settings.twitter_label }}
+                  </a>
+                </li>
+              {% endif %}
+              {% if block.settings.show_instagram %}
+                <li>
+                  <a href="{{ block.settings.instagram_url }}">
+                    <img
+                      src="{{ block.settings.instagram_icon | image_url: '32x32' | default: 'insta-icon.svg' | file_url }}"
+                      alt="Instagram"
+                      class="img-fluid"
+                      height=""
+                      width="" />
+                    {{ block.settings.instagram_label }}
+                  </a>
+                </li>
+              {% endif %}
+              {% if block.settings.show_youtube %}
+                <li>
+                  <a href="{{ block.settings.youtube_url }}">
+                    <img
+                      src="{{ block.settings.youtube_icon | image_url: '32x32' | default: 'youtube-icon.svg' | file_url }}"
+                      alt="YouTube"
+                      class="img-fluid"
+                      height=""
+                      width="" />
+                    {{ block.settings.youtube_label }}
+                  </a>
+                </li>
+              {% endif %}
+              {% if block.settings.show_google %}
+                <li>
+                  <a href="{{ block.settings.google_url }}">
+                    <img
+                      src="{{ block.settings.google_icon | image_url: '32x32' | default: 'google-icon.svg' | file_url }}"
+                      alt="Google+"
+                      class="img-fluid"
+                      height=""
+                      width="" />
+                    {{ block.settings.google_label }}
+                  </a>
+                </li>
+              {% endif %}
+            </ul>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="footer__bottom">
     <div class="container">
-        <div class="footer-wrap desktop-footer">
-            <div class="footer-wrap-content">
-                <h4>MAIN PRODUCTS</h4>
-                <ul>
-                    <li><a href="#">Graffiti Spray Paint</a></li>
-                    <li><a href="#">Graffiti Markers</a></li>
-                    <li><a href="#">Spray Caps</a></li>
-                    <li><a href="#">Graffiti Magazines</a></li>
-                    <li><a href="#">Graffiti Books</a></li>
-                    <li><a href="#">Streetwear</a></li>
-                </ul>
-            </div>
-            <div class="footer-wrap-content">
-                <h4>BRANDS</h4>
-                <ul>
-                    <li><a href="#">Molotow</a></li>
-                    <li><a href="#">Dang Paint</a></li>
-                    <li><a href="#">Flame Paint</a></li>
-                    <li><a href="#">Krink</a></li>
-                    <li><a href="#">Grog</a></li>
-                    <li><a href="#">Stylefile</a></li>
-                    <li><a href="#">On The Run</a></li>
-                    <li><a href="#">Potentate</a></li>
-                    <li><a href="#">Sakura</a></li>
-                    <li><a href="#">Markal</a></li>
-                </ul>
-            </div>
-            <div class="footer-wrap-content">
-                <h4>INFORMATION</h4>
-                <ul>
-                    <li><a href="#">Your Account</a></li>
-                    <li><a href="#">Faq</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Returns And Refunds</a></li>
-                    <li><a href="#">Terms Of Service</a></li>
-                    <li><a href="#">Search Terms</a></li>
-                    <li><a href="#">Site Map</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                    <li><a href="#">Wholesale</a></li>
-                </ul>
-            </div>
-            <div class="footer-wrap-content">
-                <h4>FOLLOW US</h4>
-                <ul class="social-icon">
-                    <li><a href="#"><img src="{{ 'facebook-icon.svg' |  file_url }}" alt="social-icon"
-                                class="img-fluid" height="" width="">FaceBook</a></li>
-                    <li><a href="#"><img src="{{ 'twitter-icon.svg' |  file_url }}" alt="social-icon"
-                                class="img-fluid" height="" width="">Twitter</a></li>
-                    <li><a href="#"><img src="{{ 'google-icon.svg' |  file_url }}" alt="social-icon"
-                                class="img-fluid" height="" width="">Google+</a></li>
-                    <li><a href="#"><img src="{{ 'youtube-icon.svg' |  file_url }}" alt="social-icon"
-                                class="img-fluid" height="" width="">YouTube</a></li>
-                    <li><a href="#"><img src="{{ 'insta-icon.svg' |  file_url }}" alt="social-icon"
-                                class="img-fluid" height="" width="">Instagram</a></li>
-                </ul>
-            </div>
+      <div class="footer__bottom-content">
+        <div class="footer__bottom-left">
+        {% assign current_year = 'now' | date: "%Y" %}
+          <p>
+            <a href="javascript:void(0)">
+                {{ section.settings.footer_text | replace: '[year]', current_year }}
+            </a>
+          </p>
         </div>
-        <div class="footer-wrap footer-mobile-content">
-            <div class="footer-wrap-content">
-                <h4>BRANDS</h4>
-                <ul>
-                    <li><a href="javascript:void(0)">Molotow</a></li>
-                    <li><a href="javascript:void(0)">Dang Paint</a></li>
-                    <li><a href="javascript:void(0)">Flame Paint</a></li>
-                    <li><a href="javascript:void(0)">Krink</a></li>
-                    <li><a href="javascript:void(0)">Grog</a></li>
-                    <li><a href="javascript:void(0)">Stylefile</a></li>
-                    <li><a href="javascript:void(0)">On The Run</a></li>
-                    <li><a href="javascript:void(0)">Potentate</a></li>
-                    <li><a href="javascript:void(0)">Sakura</a></li>
-                    <li><a href="javascript:void(0)">Markal</a></li>
-                </ul>
-            </div>
-            <div class="footer-wrap-content">
-                <h4>INFORMATION</h4>
-                <ul>
-                    <li><a href="javascript:void(0)">Your Account</a></li>
-                    <li><a href="javascript:void(0)">Faq</a></li>
-                    <li><a href="javascript:void(0)">Contact Us</a></li>
-                    <li><a href="javascript:void(0)">Returns And Refunds</a></li>
-                    <li><a href="javascript:void(0)">Terms Of Service</a></li>
-                    <li><a href="javascript:void(0)">Search Terms</a></li>
-                    <li><a href="javascript:void(0)">Site Map</a></li>
-                    <li><a href="javascript:void(0)">Testimonials</a></li>
-                    <li><a href="javascript:void(0)">Wholesale</a></li>
-                </ul>
-            </div>
-            <div class="footer-wrap-content">
-                <h4>MAIN PRODUCTS</h4>
-                <ul>
-                    <li><a href="javascript:void(0)">Graffiti Spray Paint</a></li>
-                    <li><a href="javascript:void(0)">Graffiti Markers</a></li>
-                    <li><a href="javascript:void(0)">Spray Caps</a></li>
-                    <li><a href="javascript:void(0)">Graffiti Magazines</a></li>
-                    <li><a href="javascript:void(0)">Graffiti Books</a></li>
-                    <li><a href="javascript:void(0)">Streetwear</a></li>
-                </ul>
-            </div>
-            <div class="footer-wrap-content">
-                <h4>FOLLOW US</h4>
-                <ul class="social-icon">
-                    <li><a href="javascript:void(0)"><img src="{{ 'facebook-icon.svg' |  file_url }}" alt="social-icon"
-                                class="img-fluid" height="" width="">FaceBook</a></li>
-                    <li><a href="javascript:void(0)"><img src="{{ 'twitter-icon.svg' |  file_url }}" alt="social-icon"
-                                class="img-fluid" height="" width="">Twitter</a></li>
-                    <li><a href="javascript:void(0)"><img src="{{ 'google-icon.svg' |  file_url }}" alt="social-icon"
-                                class="img-fluid" height="" width="">Google+</a></li>
-                    <li><a href="javascript:void(0)"><img src="{{ 'youtube-icon.svg' |  file_url }}" alt="social-icon"
-                                class="img-fluid" height="" width="">YouTube</a></li>
-                    <li><a href="javascript:void(0)"><img src="{{ 'insta-icon.svg' |  file_url }}" alt="social-icon"
-                                class="img-fluid" height="" width="">Instagram</a></li>
-                </ul>
-            </div>
+        <div class="footer__bottom-right">
+          <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+          <ul>
+            {% if shop.privacy_policy %}
+              <li>
+                <a href="{{ shop.privacy_policy.url }}">{{ shop.privacy_policy.title }}</a>
+              </li>
+            {% endif %}
+          </ul>
         </div>
+      </div>
     </div>
-    <div class="footer__bottom">
-        <div class="container">
-            <div class="footer__bottom-content">
-                <div class="footer__bottom-left">
-                    <p> <a href="javascript:void(0)"> © 2022 Bombing Science. </a> All Rights Reserved.</p>
-                </div>
-                <div class="footer__bottom-right">
-                    <a href="mailto:support@bombingscience.com">support@bombingscience.com</a>
-                    <ul>
-                        <li>Privacy Policy</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+  </div>
 </footer>
 
 {% schema %}
   {
     "name": "Custom Footer",
-    "settings": [],
+    "settings": [
+      {
+        "type": "text",
+        "id": "email",
+        "label": "Support Email",
+        "default": "support@bombingscience.com"
+      }, {
+        "type": "text",
+        "id": "footer_text",
+        "label": "Footer Text",
+        "default": "© [year] Bombing Science . All Rights Reserved."
+      }, {
+        "type": "url",
+        "id": "privacy_policy_url",
+        "label": "Privacy Policy URL"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "menu_block",
+        "name": "Menu Column",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Main Menu"
+          }, {
+            "type": "link_list",
+            "id": "menu",
+            "label": "Menu"
+          }
+        ]
+      }, {
+        "type": "social_block",
+        "name": "Social Links",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Follow Us"
+          },
+          {
+            "type": "checkbox",
+            "id": "show_facebook",
+            "label": "Show Facebook",
+            "default": true
+          },
+          {
+            "type": "url",
+            "id": "facebook_url",
+            "label": "Facebook URL"
+          },
+          {
+            "type": "text",
+            "id": "facebook_label",
+            "label": "Facebook Label",
+            "default": "Facebook"
+          }, {
+            "type": "image_picker",
+            "id": "facebook_icon",
+            "label": "Facebook Icon"
+          }, {
+            "type": "checkbox",
+            "id": "show_twitter",
+            "label": "Show Twitter",
+            "default": true
+          }, {
+            "type": "url",
+            "id": "twitter_url",
+            "label": "Twitter URL"
+          }, {
+            "type": "text",
+            "id": "twitter_label",
+            "label": "Twitter Label",
+            "default": "Twitter"
+          }, {
+            "type": "image_picker",
+            "id": "twitter_icon",
+            "label": "Twitter Icon"
+          }, {
+            "type": "checkbox",
+            "id": "show_instagram",
+            "label": "Show Instagram",
+            "default": true
+          }, {
+            "type": "url",
+            "id": "instagram_url",
+            "label": "Instagram URL"
+          }, {
+            "type": "text",
+            "id": "instagram_label",
+            "label": "Instagram Label",
+            "default": "Instagram"
+          }, {
+            "type": "image_picker",
+            "id": "instagram_icon",
+            "label": "Instagram Icon"
+          }, {
+            "type": "checkbox",
+            "id": "show_youtube",
+            "label": "Show YouTube",
+            "default": true
+          }, {
+            "type": "url",
+            "id": "youtube_url",
+            "label": "YouTube URL"
+          }, {
+            "type": "text",
+            "id": "youtube_label",
+            "label": "YouTube Label",
+            "default": "YouTube"
+          }, {
+            "type": "image_picker",
+            "id": "youtube_icon",
+            "label": "YouTube Icon"
+          }, {
+            "type": "checkbox",
+            "id": "show_google",
+            "label": "Show Google+",
+            "default": true
+          }, {
+            "type": "url",
+            "id": "google_url",
+            "label": "Google+ URL"
+          }, {
+            "type": "text",
+            "id": "google_label",
+            "label": "Google+ Label",
+            "default": "Google+"
+          }, {
+            "type": "image_picker",
+            "id": "google_icon",
+            "label": "Google+ Icon"
+          }
+        ]
+      }
+    ],
+    "max_blocks": 8,
     "presets": [
       {
-        "name": "Custom Footer"
+        "name": "Custom Footer",
+        "blocks": [
+          {
+            "type": "menu_block",
+            "settings": {
+              "heading": "MAIN PRODUCTS"
+            }
+          }, {
+            "type": "menu_block",
+            "settings": {
+              "heading": "BRANDS"
+            }
+          }, {
+            "type": "menu_block",
+            "settings": {
+              "heading": "INFORMATION"
+            }
+          }, {
+            "type": "social_block",
+            "settings": {
+              "heading": "FOLLOW US"
+            }
+          }
+        ]
       }
     ]
   }

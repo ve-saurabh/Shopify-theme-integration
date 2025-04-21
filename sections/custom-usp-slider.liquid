@@ -1,35 +1,51 @@
 <div class="cwr-usp-slider cwr-usp-slider--bg-primary">
-    <div class="container">
-        <div class="cwr-usp-slider__content js-usp-slider-content">
-            <div class="cwr-usp-slider__item">
-                <div class="cwr-usp-slider__item-box">
-                    <img src="{{ 'cwr-usp-img-white-1.png' |  file_url }}" alt="usp-img" class="img-fluid">
-                    <span>90,000 + happy customers</span>
-                </div>
-            </div>
-            <div class="cwr-usp-slider__item">
-                <div class="cwr-usp-slider__item-box">
-                    <img src="{{ 'cwr-usp-img-white-2.png' |  file_url }}" alt="usp-img" class="img-fluid">
-                    <span>Safe & secure checkout</span>
-                </div>
-            </div>
-            <div class="cwr-usp-slider__item">
-                <div class="cwr-usp-slider__item-box">
-                    <img src="{{ 'cwr-usp-img-white-3.png' |  file_url }}" alt="usp-img" class="img-fluid">
-                    <span>FREE DELIVERY over $70</span>
-                </div>
-            </div>
-        </div>
-    </div>
+  {% assign usp_blocks = section.blocks | where: "type", "usp_slider" %}
+  {% if usp_blocks.size > 0 %}
+    {% render 'usp-slider', blocks: usp_blocks %}
+  {% endif %}
 </div>
-
 {% schema %}
   {
     "name": "Custom Usp Slider",
     "settings": [],
+    "blocks": [
+      {
+        "type": "usp_slider",
+        "name": "Usp Item",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "USP Image"
+          }, {
+            "type": "text",
+            "id": "text",
+            "label": "USP Text"
+          }
+        ]
+      }
+    ],
     "presets": [
       {
-        "name": "Custom Usp Slider"
+        "name": "Custom Usp Slider",
+        "blocks": [
+          {
+            "type": "usp_slider",
+            "settings": {
+              "text": "90,000 + happy customers"
+            }
+          }, {
+            "type": "usp_slider",
+            "settings": {
+              "text": "Safe & secure checkout"
+            }
+          }, {
+            "type": "usp_slider",
+            "settings": {
+              "text": "FREE DELIVERY over $70"
+            }
+          }
+        ]
       }
     ]
   }

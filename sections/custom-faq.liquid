@@ -1,90 +1,108 @@
-<section class="cwr-faq">
+{%- if section.blocks.size > 0 -%}
+  <section class="cwr-faq">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-5">
-                <div class="cwr-faq__left">
-                    <div class="cwr-faq__logo">
-                        <img data-src="{{ 'faq-logo.png' |  file_url }}" alt="cwr-faq logo" class="img-fluid lazyload"
-                            width="70" height="70">
-                    </div>
-                    <h2 class="custom-heading-md">Frequently asked questions</h2>
-                    <h4 class="custom-heading-sm">If you can’t find all the answers you need here, please contact us
-                        at <a href="javascript:;">support@bombingscience.com .</a></h4>
-                </div>
+      <div class="row">
+        <div class="col-lg-5">
+          <div class="cwr-faq__left">
+            <div class="cwr-faq__logo">
+              {%- if section.settings.logo != blank -%}
+                <img
+                  data-src="{{ section.settings.logo |  image_url  }}"
+                  alt="cwr-faq logo"
+                  class="img-fluid lazyload"
+                  width="70"
+                  height="70">
+              {%- endif -%}
             </div>
-            <div class="col-lg-7">
-                <div class="cwr-faq__right">
-                    <div class="cwr-faq-main js-faq-main-wrapper">
-                        <ul>
-                            <li class="cwr-faq-main__item">
-                                <div class="cwr-faq-main__que js-faq-main-que">
-                                    <h6>When my order will be delivered?</h6>
-                                </div>
-                                <div class="cwr-faq-main__ans js-faq-main-ans">
-                                    <p>USA: 3-6 business daysCanada: 1-5 business daysInternational: 8-75 business
-                                        days</p>
-                                    <ul>
-                                        <li>Calculate the business days from the day after you have received your
-                                            shipping confirmation. For example, if you have received your shipping
-                                            confirmation today, tomorrow will be the 1st business day of the
-                                            shipping.</li>
-                                        <li>The shipping times above are for deliveries in major centers. For rural
-                                            deliveries or deliveries outside continental USA and Canada, it can take
-                                            a few more days.</li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="cwr-faq-main__item">
-                                <div class="cwr-faq-main__que js-faq-main-que">
-                                    <h6>When will you ship my order?</h6>
-                                </div>
-                                <div class="cwr-faq-main__ans js-faq-main-ans">
-                                    <p>USA: 3-6 business daysCanada: 1-5 business daysInternational: 8-75 business
-                                        days </p>
-                                </div>
-                            </li>
-                            <li class="cwr-faq-main__item">
-                                <div class="cwr-faq-main__que js-faq-main-que">
-                                    <h6>Where can I track my package?</h6>
-                                </div>
-                                <div class="cwr-faq-main__ans js-faq-main-ans">
-                                    <p>USA: 3-6 business daysCanada: 1-5 business daysInternational: 8-75 business
-                                        days</p>
-                                </div>
-                            </li>
-                            <li class="cwr-faq-main__item">
-                                <div class="cwr-faq-main__que js-faq-main-que">
-                                    <h6>What is your return policy?</h6>
-                                </div>
-                                <div class="cwr-faq-main__ans js-faq-main-ans">
-                                    <p>USA: 3-6 business daysCanada: 1-5 business daysInternational: 8-75 business
-                                        days</p>
-                                </div>
-                            </li>
-                            <li class="cwr-faq-main__item">
-                                <div class="cwr-faq-main__que js-faq-main-que">
-                                    <h6>What kind of payment do you accept?</h6>
-                                </div>
-                                <div class="cwr-faq-main__ans js-faq-main-ans">
-                                    <p>USA: 3-6 business daysCanada: 1-5 business daysInternational: 8-75 business
-                                        days</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            {%- if section.settings.main_heading != blank -%}
+              <h2 class="custom-heading-md">{{ section.settings.main_heading }}</h2>
+            {%- endif -%}
+            {% if section.settings.sub_heading != blank %}
+              <h4 class="custom-heading-sm">{{ section.settings.sub_heading }}
+                {%- if section.settings.contact_us != blank -%}
+                  <a href="mailto:{{ section.settings.contact_us }}">{{ section.settings.contact_us }}</a>
+                {%- endif -%}
+              </h4>
+            {% endif %}
+          </div>
         </div>
+        <div class="col-lg-7">
+          <div class="cwr-faq__right">
+            <div class="cwr-faq-main js-faq-main-wrapper">
+              <ul>
+                {%- for block in section.blocks -%}
+                  <li class="cwr-faq-main__item">
+                    {%- if block.settings.question != blank -%}
+                      <div class="cwr-faq-main__que js-faq-main-que">
+                        <h6>{{ block.settings.question }}</h6>
+                      </div>
+                    {%- endif -%}
+                    {%- if block.settings.answer != blank -%}
+                      <div class="cwr-faq-main__ans js-faq-main-ans">
+                        <p>{{ block.settings.answer }}</p>
+                      </div>
+                    {%- endif -%}
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
+{%- endif -%}
 
 {% schema %}
   {
     "name": "Custom Faq",
-    "settings": [],
+    "settings": [
+      {
+        "type": "image_picker",
+        "label": "Select Logo",
+        "id": "logo"
+      }, {
+        "type": "text",
+        "label": "Main Heading",
+        "id": "main_heading",
+        "default": "Frequently asked questions"
+      }, {
+        "type": "text",
+        "label": "Sub Heading",
+        "id": "sub_heading",
+        "default": "If you can’t find all the answers you need here, please contact us at"
+      }, {
+        "type": "text",
+        "label": "Contact Us",
+        "id": "contact_us",
+        "default": "support@bombingscience.com ."
+      }
+    ],
+    "blocks": [
+      {
+        "name": "FAQ ITEM",
+        "type": "faq",
+        "settings": [
+          {
+            "type": "text",
+            "label": "Question",
+            "id": "question"
+          }, {
+            "type": "text",
+            "label": "Answer",
+            "id": "answer"
+          }
+        ]
+      }
+    ],
     "presets": [
       {
-        "name": "Custom Faq"
+        "name": "Custom Faq",
+        "settings": {
+          "main_heading": "Frequently asked questions",
+          "sub_heading": "If you can’t find all the answers you need here, please contact us at",
+          "contact_us": "support@bombingscience.com ."
+        }
       }
     ]
   }

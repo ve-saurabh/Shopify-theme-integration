@@ -1,117 +1,92 @@
-<section class="cwr-review">
-    <div class="container">
-        <div class="sec-heading">
-            <h2 class="custom-heading-md">WHY ARTISTS AND GRAFFITISTS LOVE SHOPPING WITH US</h2>
-            <h4 class="custom-heading-sm">Hear it straight from those who trust our products</h4>
-        </div>
-        <div class="cwr-review__wrap js-cwr-review-slider">
-            <div class="cwr-review__slider">
-                <div class="cwr-rating">
-                    <ul>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                    </ul>
-                </div>
-                <p>“Great customer service. I had damage to a order, they fixed/ resolved immediately!Also the
-                    search tool on shop website is very user friendly (dont need exact text to generate results)!”
-                </p>
-                <div class="cwr-review-img">
-                    <figure>
-                        <img src="{{ 'review-slider-img1.jpg' |  file_url }}" alt="review img" class="img-fluid" height="" width="" />
-                    </figure>
-                    <span>ERIC POTTS</span>
-                </div>
+{%- if section.blocks.size > 0 -%}
+    <section class="cwr-review">
+        <div class="container">
+            <div class="sec-heading">
+                {%- if section.settings.main_heading != blank -%}
+                    <h2 class="custom-heading-md">{{ section.settings.main_heading }}</h2>
+                {%- endif -%}
+                {%- if section.settings.sub_heading != blank -%}
+                    <h4 class="custom-heading-sm">{{ section.settings.sub_heading }}</h4>
+                {%- endif -%}
             </div>
-            <div class="cwr-review__slider">
-                <div class="cwr-rating">
-                    <ul>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                    </ul>
-                </div>
-                <p>“I just found Bombing Science and I’m glad I said! Great website! Quick ship! Easy to navigate.
-                    Great selection and better prices than the big guy! I’m a Bombing Science customer!Thanks!”</p>
-                <div class="cwr-review-img">
-                    <figure>
-                        <img src="{{ 'review-slider-img2.jpg' |  file_url }}" alt="review img" class="img-fluid" height="" width="" />
-                    </figure>
-                    <span>stevie kay</span>
-                </div>
-            </div>
-            <div class="cwr-review__slider">
-                <div class="cwr-rating">
-                    <ul>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                    </ul>
-                </div>
-                <p>“Bombing Science has great prices and variety. Dang brand paint is great quality and sold for a
-                    great price. I would strongly recommend Bombing Science for art/graff supplies!”</p>
-                <div class="cwr-review-img">
-                    <figure>
-                        <img src="{{ 'review-slider-img3.jpg' |  file_url }}" alt="review img" class="img-fluid" height="" width="" />
-                    </figure>
-                    <span>Matthew Keyes</span>
-                </div>
-            </div>
-            <div class="cwr-review__slider">
-                <div class="cwr-rating">
-                    <ul>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                    </ul>
-                </div>
-                <p>“I’ve only ordered from them 3 times but will always come back to order more, unbelievable amount
-                    of colours, amazing quality an unmatched prices!!</p>
-                <div class="cwr-review-img">
-                    <figure>
-                        <img src="{{ 'review-slider-img4.jpg' |  file_url }}" alt="review img" class="img-fluid" height="" width="" />
-                    </figure>
-                    <span>ChedderB 1620</span>
-                </div>
-            </div>
-            <div class="cwr-review__slider">
-                <div class="cwr-rating">
-                    <ul>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                        <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
-                    </ul>
-                </div>
-                <p>“Great for custom work when you'd rather use refills than buying new markers or for mixing
-                    custom colors. I like to throw a 2mm nib into my 111's so I can make super fine lines.”</p>
-                <div class="cwr-review-img">
-                    <figure>
-                        <img src="{{ 'review-slider-img1.jpg' |  file_url }}" alt="review img" class="img-fluid" height="" width="" />
-                    </figure>
-                    <span>spectre</span>
-                </div>
+            <div class="cwr-review__wrap js-cwr-review-slider">
+                {%- for block in section.blocks -%}              
+                    <div class="cwr-review__slider">
+                        <div class="cwr-rating">
+                            <ul>
+                                {%- for i in (1..5) -%}  
+                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
+                                {%- endfor -%}
+                            </ul>
+                        </div>
+                        {%- if block.settings.review != blank -%}      
+                            <p>{{ block.settings.review }}
+                            </p>
+                        {%- endif -%}
+                        <div class="cwr-review-img">
+                            <figure>
+                                {%- if block.settings.image != blank -%}    
+                                    <img src="{{ block.settings.image |  image_url  }}" alt="review img" class="img-fluid" height="" width="" />
+                                {%- endif -%}
+                            </figure>
+                            {%- if block.settings.reviewer_name != blank -%}
+                                <span>{{ block.settings.reviewer_name }}</span>
+                            {%- endif -%}
+                        </div>
+                    </div>
+                {%- endfor -%}
             </div>
         </div>
-    </div>
-</section>
+    </section>
+{%- endif -%}
 
 {% schema %}
   {
     "name": "Custom Reviews",
-    "settings": [],
+    "settings": [
+        {
+            "type": "text",
+            "label": "Main Heading",
+            "id": "main_heading",
+            "default": "WHY ARTISTS AND GRAFFITISTS LOVE SHOPPING WITH US"
+        },
+        {
+            "type": "text",
+            "label": "Sub Heading",
+            "id": "sub_heading",
+            "default": "Hear it straight from those who trust our products"
+        }
+    ],
+    "blocks": [
+      {
+        "name": "Add Review",
+        "type": "review",
+        "settings": [
+           {
+            "type": "text",
+            "label": "Review Text",
+            "id": "review"
+           },
+           {
+            "type": "text",
+            "label": "Reviewer Name",
+            "id": "reviewer_name"
+           },
+           {
+            "type": "image_picker",
+            "label": "Select Image",
+            "id": "image"
+           }
+        ]
+      }
+    ],
     "presets": [
       {
-        "name": "Custom Reviews"
+        "name": "Custom Reviews",
+        "settings": {
+            "main_heading":"WHY ARTISTS AND GRAFFITISTS LOVE SHOPPING WITH US",
+            "sub_heading": "Hear it straight from those who trust our products"
+        }
       }
     ]
   }

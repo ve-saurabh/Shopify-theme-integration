@@ -11,12 +11,138 @@
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
+    "custom_announcement_bar_DECipx": {
+      "type": "custom-announcement-bar",
+      "settings": {
+        "announcement_text": "Some announcement goes here"
+      }
+    },
     "custom_header_HGTwiP": {
       "type": "custom-header",
-      "settings": {}
+      "blocks": {
+        "usp_slider_X7dYrp": {
+          "type": "usp_slider",
+          "settings": {
+            "image": "shopify://shop_images/usp-img1.svg",
+            "text": "90,000 + Happy customers"
+          }
+        },
+        "usp_slider_jyhh9f": {
+          "type": "usp_slider",
+          "settings": {
+            "image": "shopify://shop_images/usp-img2.svg",
+            "text": "safe & secure checkout"
+          }
+        },
+        "usp_slider_bazNEQ": {
+          "type": "usp_slider",
+          "settings": {
+            "image": "shopify://shop_images/usp-img3.svg",
+            "text": "free delivery over $70"
+          }
+        },
+        "nav_block_Gx6gpd": {
+          "type": "nav_block",
+          "settings": {
+            "megamenu": "mega-menu"
+          }
+        },
+        "nav_sub_block_yHYLFh": {
+          "type": "nav_sub_block",
+          "settings": {
+            "title": "Brands",
+            "submenu_1": "categories",
+            "submenu_2": "deals",
+            "submenu_3": "brands"
+          }
+        },
+        "nav_sub_block_JKRyzh": {
+          "type": "nav_sub_block",
+          "settings": {
+            "title": "Paint",
+            "submenu_1": "categories",
+            "submenu_2": "deals",
+            "submenu_3": "brands"
+          }
+        },
+        "nav_sub_block_HGWt4y": {
+          "type": "nav_sub_block",
+          "settings": {
+            "title": "Markers",
+            "submenu_1": "categories",
+            "submenu_2": "deals",
+            "submenu_3": "brands"
+          }
+        },
+        "nav_sub_block_NzpMYJ": {
+          "type": "nav_sub_block",
+          "settings": {
+            "title": "Apparel",
+            "submenu_1": "categories",
+            "submenu_2": "deals",
+            "submenu_3": "brands"
+          }
+        },
+        "nav_sub_block_T9apKe": {
+          "type": "nav_sub_block",
+          "settings": {
+            "title": "Caps",
+            "submenu_1": "categories",
+            "submenu_2": "deals",
+            "submenu_3": "brands"
+          }
+        },
+        "nav_sub_block_cabQW7": {
+          "type": "nav_sub_block",
+          "settings": {
+            "title": "Media",
+            "submenu_1": "categories",
+            "submenu_2": "deals",
+            "submenu_3": "brands"
+          }
+        }
+      },
+      "block_order": [
+        "usp_slider_X7dYrp",
+        "usp_slider_jyhh9f",
+        "usp_slider_bazNEQ",
+        "nav_block_Gx6gpd",
+        "nav_sub_block_yHYLFh",
+        "nav_sub_block_JKRyzh",
+        "nav_sub_block_HGWt4y",
+        "nav_sub_block_NzpMYJ",
+        "nav_sub_block_T9apKe",
+        "nav_sub_block_cabQW7"
+      ],
+      "settings": {
+        "logo": "shopify://shop_images/logo.png",
+        "menu_icon": "shopify://shop_images/menu.svg",
+        "enable_search": true,
+        "search_placeholder": "Search......",
+        "search_icon": "shopify://shop_images/search-icon-mobile.svg",
+        "country_enable": true,
+        "country_default_icon": "shopify://shop_images/country-img.svg",
+        "country_1_icon": "shopify://shop_images/country-img2.png",
+        "country_1_label": "CAD",
+        "country_2_icon": "shopify://shop_images/country-img.svg",
+        "country_2_label": "USD",
+        "user_icon": "shopify://shop_images/user-img.svg",
+        "cart_icon": "shopify://shop_images/cart-img.svg",
+        "social_icon_1": "shopify://shop_images/cwr-social-icon1.svg",
+        "facebook_url": "",
+        "social_icon_2": "shopify://shop_images/cwr-socail-icon2.svg",
+        "twitter_url": "",
+        "social_icon_3": "shopify://shop_images/cwr-social-icon3.svg",
+        "google_url": "",
+        "social_icon_4": "shopify://shop_images/cwr-social-icon4.svg",
+        "youtube_url": "",
+        "social_icon_5": "shopify://shop_images/cwr-social-icon5.svg",
+        "instagram_url": ""
+      }
     }
   },
   "order": [
+    "custom_announcement_bar_DECipx",
     "custom_header_HGTwiP"
   ]
 }
