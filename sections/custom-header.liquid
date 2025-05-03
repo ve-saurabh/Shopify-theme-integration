@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
+{%- if settings.predictive_search_enabled -%}
+  <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
+{%- endif -%}
 <header class="cwr-header">
     <div class="cwr-header__content">
         <div class="container">
@@ -20,12 +24,13 @@
             <div class="cwr-header__right">
               {% if section.settings.enable_search %}
               <div class="search-input">
-                <form>
+                {% render 'header-search', input_id: 'search-In-Modal' %}
+                {% comment %} <form>
                   <button>
                     <img src="{{ section.settings.search_icon | image_url }}" alt="search-icon" class="img-fluid" height="" width="">
                   </button>
                   <input type="text" name="q" id="search" placeholder="{{ section.settings.search_placeholder }}" class="search">
-                </form>
+                </form> {% endcomment %}
               </div>
               {% endif %}
       
@@ -135,12 +140,13 @@
                 </div>
             </div>
             <div class="search-input mobile-search">
-                <form>
+              {% render 'header-search', input_id: 'search-In-Modal' %}
+                {% comment %} <form>
                     <button>
                         <img src="{{ 'search-icon-mobile.svg' |  file_url }}" alt="search-icon" class="img-fluid" height="" width="">
                     </button>
                     <input type="text" name="" value="" id="search" placeholder="Search......" class="search">
-                </form>
+                </form> {% endcomment %}
             </div>
             <div class="cwr-best-seller-product">
                 <h4>Best sellers</h4>  
@@ -263,192 +269,6 @@
                             </div>
                             <a href="javascript:void(0)">
                                 <h5>Markal marker (B Paint Stik)</h5>
-                            </a>
-                            <div class="cwr-product-price">
-                                <span>USD$6.39</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cwr__box">
-                        <a href="javascript:void(0)">
-                            <figure>
-                                <img data-src="{{ 'cwr-menu-img5.jpg' |  file_url }}" alt="menu img" class="img-fluid lazyload"
-                                    width="53" height="112">
-                            </figure>
-                        </a>
-                        <div class="cwr__box-content">
-                            <div class="cwr-rating">
-                                <ul>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                </ul>
-                                <span>84 reviews</span>
-                            </div>
-                            <a href="javascript:void(0)">
-                                <h5>Uni Paint Marker (PX-30)</h5>
-                            </a>
-                            <div class="cwr-product-price">
-                                <span>USD$6.39</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cwr__box">
-                        <a href="javascript:void(0)">
-                            <figure>
-                                <img data-src="{{ 'cwr-menu-img6.jpg' |  file_url }}" alt="menu img" class="img-fluid lazyload"
-                                    width="23" height="112">
-                            </figure>
-                        </a>
-                        <div class="cwr__box-content">
-                            <div class="cwr-rating">
-                                <ul>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                </ul>
-                                <span>84 reviews</span>
-                            </div>
-                            <a href="javascript:void(0)">
-                                <h5>Molotow 227HS Marker</h5>
-                            </a>
-                            <div class="cwr-product-price">
-                                <span>USD$6.39</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cwr__box">
-                        <a href="javascript:void(0)">
-                            <figure>
-                                <img data-src="{{ 'cwr-menu-img7.jpg' |  file_url }}" alt="menu img" class="img-fluid lazyload"
-                                    width="21" height="112">
-                            </figure>
-                        </a>
-                        <div class="cwr__box-content">
-                            <div class="cwr-rating">
-                                <ul>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                </ul>
-                                <span>84 reviews</span>
-                            </div>
-                            <a href="javascript:void(0)">
-                                <h5>Grog Squeezer Marker 10 FMP</h5>
-                            </a>
-                            <div class="cwr-product-price">
-                                <span> <del>USD$10.49</del>USD$6.39</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cwr__box">
-                        <a href="javascript:void(0)">
-                            <figure>
-                                <img data-src="{{ 'cwr-menu-img8.jpg' |  file_url }}" alt="menu img" class="img-fluid lazyload"
-                                    width="42" height="112">
-                            </figure>
-                        </a>
-                        <div class="cwr__box-content">
-                            <div class="cwr-rating">
-                                <ul>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                </ul>
-                                <span>84 reviews</span>
-                            </div>
-                            <a href="javascript:void(0)">
-                                <h5>DANG Flex 15 mop (Paint)</h5>
-                            </a>
-                            <div class="cwr-product-price">
-                                <span>USD$6.39</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cwr__box">
-                        <a href="javascript:void(0)">
-                            <figure>
-                                <img data-src="{{ 'cwr-menu-img9.jpg' |  file_url }}" alt="menu img" class="img-fluid lazyload"
-                                    width="52" height="112">
-                            </figure>
-                        </a>
-                        <div class="cwr__box-content">
-                            <div class="cwr-rating">
-                                <ul>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                </ul>
-                                <span>84 reviews</span>
-                            </div>
-                            <a href="javascript:void(0)">
-                                <h5>Markal marker (B Paint Stik)</h5>
-                            </a>
-                            <div class="cwr-product-price">
-                                <span>USD$6.39</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cwr__box">
-                        <a href="javascript:void(0)">
-                            <figure>
-                                <img data-src="{{ 'cwr-menu-img10.jpg' |  file_url }}" alt="menu img"
-                                    class="img-fluid lazyload" width="96" height="112">
-                            </figure>
-                        </a>
-                        <div class="cwr__box-content">
-                            <div class="cwr-rating">
-                                <ul>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                    <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" />
-                                    </li>
-                                </ul>
-                                <span>84 reviews</span>
-                            </div>
-                            <a href="javascript:void(0)">
-                                <h5>Uni Paint Marker (PX-30)</h5>
                             </a>
                             <div class="cwr-product-price">
                                 <span>USD$6.39</span>

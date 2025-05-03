@@ -10,133 +10,115 @@
 {
   "sections": {
     "banner": {
-      "type": "main-collection-banner",
-      "disabled": true,
-      "settings": {
-        "show_collection_description": true,
-        "show_collection_image": false,
-        "color_scheme": "scheme-1"
-      }
-    },
-    "product-grid": {
-      "type": "main-collection-product-grid",
-      "disabled": true,
-      "settings": {
-        "products_per_page": 16,
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "enable_filtering": true,
-        "filter_type": "horizontal",
-        "enable_sorting": true,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "custom_collection_banner_LaPAnT": {
       "type": "custom-collection-banner",
       "settings": {
         "desktop_image": "shopify://shop_images/collections-banner-img.jpg",
         "mobile_image": "shopify://shop_images/collections-banner-img-mobile_acd1f4ea-2026-4f80-ab10-5070f4ca3fe9.png",
-        "rating_text": "Rated 4.9/5 by Thousands of Happy Customers",
+        "rating_text": "Rated <b>4.9/5</b> by <b>Thousands</b> of Happy Customers",
         "heading": "Get amazing MARKERS Collection",
         "subheading": "Explore the best graffiti markers and inks online at Bombing Science. Wide selection, top brands like Molotow, Krink, and more."
       }
     },
-    "custom_collection_content_tNy3eh": {
+    "collection_content": {
       "type": "custom-collection-content",
-      "settings": {}
+      "settings": {
+        "filter_title": "Filter",
+        "clear_all_text": "Clear All",
+        "checkout_text": "Safe & Secure Checkout",
+        "payment_image": "shopify://shop_images/cwr-payment-icons.png",
+        "product_button_text": "Shop Now",
+        "load_more_text": "Load More"
+      }
     },
-    "custom_reviews_dUQ3q3": {
+    "reviews": {
       "type": "custom-reviews",
       "blocks": {
-        "review_9Uczyb": {
+        "review_6i6YMX": {
           "type": "review",
           "settings": {
-            "review": "",
-            "reviewer_name": ""
+            "review_heading": "Always a useful tool!",
+            "review": "“Great for custom work when you'd rather use refills than buying new markers or for mixing custom colors. I like to throw a 2mm nib into my 111's so I can make super fine lines.”",
+            "reviewer_name": "Kasm78"
           }
         },
-        "review_nT3Egb": {
+        "review_HHTiWd": {
           "type": "review",
           "settings": {
-            "review": "",
-            "reviewer_name": ""
+            "review_heading": "best Quality!",
+            "review": "“The best pump marker out there. Other markers have trashed my work because I apply more pressure than the norm.”",
+            "reviewer_name": "Spectre"
           }
         },
-        "review_HUpJrK": {
+        "review_eia4DK": {
           "type": "review",
           "settings": {
-            "review": "",
-            "reviewer_name": ""
+            "review_heading": "Easy to refill",
+            "review": "“Seriously, these markers are god damn perfect for making custom colors along with the one4all refills. I personally think getting these over the premixed one4all markers is the more efficient way to go. Highly recommend these.”",
+            "reviewer_name": "Wingnut"
           }
         },
-        "review_GwFeXY": {
+        "review_jCkAfA": {
           "type": "review",
           "settings": {
-            "review": "",
-            "reviewer_name": ""
+            "review_heading": "best Quality!",
+            "review": "“The best pump marker out there.other markers have trashed my work because I apply more pressure than the norm",
+            "reviewer_name": "Spectre"
           }
         },
-        "review_Uzpkn3": {
+        "review_b8AWGH": {
           "type": "review",
           "settings": {
-            "review": "",
-            "reviewer_name": ""
+            "review_heading": "Always a useful tool!",
+            "review": "“Great for custom work when you'd rather use refills than buying new markers or for mixing custom colors. I like to throw a 2mm nib into my 111's so I can make super fine lines.”",
+            "reviewer_name": "Spectre"
           }
         }
       },
       "block_order": [
-        "review_9Uczyb",
-        "review_nT3Egb",
-        "review_HUpJrK",
-        "review_GwFeXY",
-        "review_Uzpkn3"
+        "review_6i6YMX",
+        "review_HHTiWd",
+        "review_eia4DK",
+        "review_jCkAfA",
+        "review_b8AWGH"
       ],
       "settings": {
         "main_heading": "WHY ARTISTS AND GRAFFITISTS LOVE SHOPPING WITH US",
         "sub_heading": "Hear it straight from those who trust our products"
       }
     },
-    "custom_usp_slider_mp3MJa": {
+    "slider": {
       "type": "custom-usp-slider",
       "blocks": {
-        "usp_slider_ha64Yq": {
+        "usp_slider_NcgUCX": {
           "type": "usp_slider",
           "settings": {
             "image": "shopify://shop_images/cwr-usp-img-white-1.png",
-            "text": "90,000 + happy customers"
+            "text": "90,000 + Happer Customers"
           }
         },
-        "usp_slider_F3nqgy": {
+        "usp_slider_Vew6cm": {
           "type": "usp_slider",
           "settings": {
             "image": "shopify://shop_images/cwr-usp-img-white-2.png",
-            "text": "Safe & secure checkout"
+            "text": "safe & secure checkout"
           }
         },
-        "usp_slider_kEQ8Cz": {
+        "usp_slider_QKp3C4": {
           "type": "usp_slider",
           "settings": {
             "image": "shopify://shop_images/cwr-usp-img-white-3.png",
-            "text": "FREE DELIVERY over $70"
+            "text": "free delivery over $70"
           }
         }
       },
       "block_order": [
-        "usp_slider_ha64Yq",
-        "usp_slider_F3nqgy",
-        "usp_slider_kEQ8Cz"
+        "usp_slider_NcgUCX",
+        "usp_slider_Vew6cm",
+        "usp_slider_QKp3C4"
       ],
       "settings": {}
     },
-    "custom_collection_newsletter_FLYwJT": {
+    "newsletter": {
       "type": "custom-collection-newsletter",
       "settings": {
         "heading": "Sign up for email",
@@ -152,11 +134,9 @@
   },
   "order": [
     "banner",
-    "product-grid",
-    "custom_collection_banner_LaPAnT",
-    "custom_collection_content_tNy3eh",
-    "custom_reviews_dUQ3q3",
-    "custom_usp_slider_mp3MJa",
-    "custom_collection_newsletter_FLYwJT"
+    "collection_content",
+    "reviews",
+    "slider",
+    "newsletter"
   ]
 }

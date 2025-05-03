@@ -1,40 +1,79 @@
 <section class="cwr-banner">
-    <div class="cwr-banner__wrap js-banner-wrap">
-        <div class="cwr-banner__img cwr-banner-img-bottom ">
-            <div class="cwr-banner__bg-img">
-                <img data-src="./images/collections-banner-img.jpg" alt="hero-img" class="img-fluid lazyload" width="1903"
-                    height="483">
-            </div>
-            <div class="cwr-banner__img-mobile">
-                <img data-src="./images/collections-banner-img-mobile.png" alt="hero-img" class="img-fluid lazyload" width="991"
-                    height="665">
-            </div>
-            <div class="cwr-banner__wrap-content cwr-banner__wrap-content--collecitons">
-                <div class="cwr-rating">
-                    <ul>
-                        <li><img src="./images/rating-star.svg" alt="star icon" class="img-fluid" /></li>
-                        <li><img src="./images/rating-star.svg" alt="star icon" class="img-fluid" /></li>
-                        <li><img src="./images/rating-star.svg" alt="star icon" class="img-fluid" /></li>
-                        <li><img src="./images/rating-star.svg" alt="star icon" class="img-fluid" /></li>
-                        <li><img src="./images/rating-star.svg" alt="star icon" class="img-fluid" /></li>
-                    </ul>
-                    <span>Rated <b>4.9/5 </b> by <b>Thousands</b> of Happy Customers</span>
-                </div>
-                <h1 class="custom-heading-xl">Get amazing MARKERS Collection</h1>
-                <h4 class="custom-heading-sm">Explore the best graffiti markers and inks online at Bombing Science. Wide selection, top brands like Molotow, Krink, and more.</h4>
-            </div>
-        </div>
+  <div class="cwr-banner__wrap js-banner-wrap">
+    <div class="cwr-banner__img cwr-banner-img-bottom">
+      <div class="cwr-banner__bg-img">
+        {% if section.settings.desktop_image != blank %}
+          <img src="{{ section.settings.desktop_image | image_url }}" alt="hero-img" class="img-fluid" width="1903" height="483">
+        {% endif %}
+      </div>
+      <div class="cwr-banner__img-mobile">
+        {% if section.settings.mobile_image != blank %}
+          <img src="{{ section.settings.mobile_image | image_url }}" alt="hero-img" class="img-fluid" width="991" height="665">
+        {% endif %}
+      </div>
+      <div class="cwr-banner__wrap-content cwr-banner__wrap-content--collecitons">
+        {% if section.settings.rating_text != blank %}
+          <div class="cwr-rating">
+            <ul>
+              <li><img src="{{ 'rating-star.svg' |  file_url }}" alt="star icon" class="img-fluid" height="" width="" /></li>
+            </ul>
+            <span>{{ section.settings.rating_text }}</span>
+          </div>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h1 class="custom-heading-xl">{{ section.settings.heading }}</h1>
+        {% endif %}
+
+        {% if section.settings.subheading != blank %}
+          <h4 class="custom-heading-sm">{{ section.settings.subheading }}</h4>
+        {% endif %}
+      </div>
     </div>
+  </div>
 </section>
 
 {% schema %}
-  {
-    "name": "Collection Banner",
-    "settings": [],
-    "presets": [
-      {
-        "name": "Collection Banner"
+{
+  "name": "Collection Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "text",
+      "id": "rating_text",
+      "label": "Rating Text",
+      "default": "Rated 4.9/5 by Thousands of Happy Customers"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Get amazing MARKERS Collection"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Explore the best graffiti markers and inks online at Bombing Science. Wide selection, top brands like Molotow, Krink, and more."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Banner",
+      "settings": {
+        "heading": "Get amazing MARKERS Collection",
+        "subheading": "Explore the best graffiti markers and inks online at Bombing Science. Wide selection, top brands like Molotow, Krink, and more."
       }
-    ]
-  }
+    }
+  ]
+}
 {% endschema %}

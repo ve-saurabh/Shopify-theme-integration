@@ -4,6 +4,16 @@
     width: 310px;
 }
 
+.svg-wrapper .icon-search{
+    color: white;
+    height: 2.5rem !important;
+    width: 2.5rem !important;
+}
+
+button.prev-arrow.slick-arrow,
+button.next-arrow.slick-arrow {
+    z-index: 3;
+}
 .cwr-header{
     position: relative;
 }
@@ -2498,7 +2508,7 @@ footer{
     content: "-"
 }
  .cwr-faq-main__que {
-    padding: 19px 0 28px;
+    /* padding: 19px 0 28px; */
     border: unset;
     display: flex;
     align-items: center;
@@ -3770,6 +3780,11 @@ footer{
     }
 }
 @media screen and (max-width: 480px) {
+    .svg-wrapper .icon-search{
+        color: black;
+        height: 2.5rem !important;
+        width: 2.5rem !important;
+    }
     .cwr-product-detail__right{
         text-align: center;
     }
@@ -4445,7 +4460,7 @@ footer{
 }
 .cwr-faq-main__que--coll-filter {
     justify-content: space-between;
-    padding: 16px 0;
+    /* padding: 16px 0; */
 }
 .cwr-faq-main__que--coll-filter .cwr-title--style-6 {
     color: var(--color-dark);

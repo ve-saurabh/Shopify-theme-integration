@@ -19,6 +19,9 @@
                                 {%- endfor -%}
                             </ul>
                         </div>
+                        {% if block.settings.review_heading != blank %}
+                            <h5>{{ block.settings.review_heading }}</h5>
+                        {% endif %}
                         {%- if block.settings.review != blank -%}      
                             <p>{{ block.settings.review }}
                             </p>
@@ -62,6 +65,11 @@
         "name": "Add Review",
         "type": "review",
         "settings": [
+            {
+            "type": "text",
+            "label": "Review Heading",
+            "id": "review_heading"
+            },
            {
             "type": "text",
             "label": "Review Text",

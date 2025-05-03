@@ -23,12 +23,14 @@
                                 </figure>
                             </a>
                         {%- endif -%}
-                        {%- if block.settings.product.tags contains "SALE" and block.settings.product.compare_at_price > block.settings.product.price -%}
-                            <span class="cwr-new-arrival cwr-sale">{{ block.settings.product.tags }}</span>
-                        {%- endif -%}
-                        {%- if block.settings.product.tags contains "New Arrival" -%}
-                            <span class="cwr-new-arrival">{{ block.settings.product.tags }}</span>
-                        {%- endif -%}
+                        {% for tag in block.settings.product.tags %}
+                            {% assign tag_down = tag | downcase %}
+                            {% if tag_down == "sale" and block.settings.product.compare_at_price > block.settings.product.price %}
+                              <span class="cwr-new-arrival cwr-sale">{{ tag }}</span>
+                            {% elsif tag_down == "new arrival" %}
+                              <span class="cwr-new-arrival">{{ tag }}</span>
+                            {% endif %}
+                          {% endfor %}                          
                         <div class="cwr-our-product__box-content">
                             <div class="cwr-rating">
                                 {% assign rating = block.settings.product.metafields.custom.rating | default: 0 | round %}

@@ -25,7 +25,7 @@
           "type": "menu_block",
           "settings": {
             "heading": "Brands",
-            "menu": "brands"
+            "menu": "brands-1"
           }
         },
         "menu_block_K4MFi7": {
@@ -41,19 +41,24 @@
             "heading": "Follow Us",
             "show_facebook": true,
             "facebook_url": "",
-            "facebook_label": "Facebook",
+            "facebook_label": "FaceBook",
+            "facebook_icon": "shopify://shop_images/facebook-icon.svg",
             "show_twitter": true,
             "twitter_url": "",
             "twitter_label": "Twitter",
+            "twitter_icon": "shopify://shop_images/twitter-icon.svg",
             "show_instagram": true,
             "instagram_url": "",
             "instagram_label": "Instagram",
+            "instagram_icon": "shopify://shop_images/insta-icon.svg",
             "show_youtube": true,
             "youtube_url": "",
             "youtube_label": "YouTube",
+            "youtube_icon": "shopify://shop_images/youtube-icon.svg",
             "show_google": true,
             "google_url": "",
-            "google_label": "Google+"
+            "google_label": "Google+",
+            "google_icon": "shopify://shop_images/google-icon.svg"
           }
         }
       },
@@ -64,8 +69,8 @@
         "social_block_9Aj68Q"
       ],
       "settings": {
-        "company_name": "Bombing Science",
         "email": "support@bombingscience.com",
+        "footer_text": "© [year] Bombing Science . All Rights Reserved.",
         "privacy_policy_url": "shopify://policies/privacy-policy"
       }
     }
