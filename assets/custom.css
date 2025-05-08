@@ -14,6 +14,15 @@ button.prev-arrow.slick-arrow,
 button.next-arrow.slick-arrow {
     z-index: 3;
 }
+
+.cwr-form__input:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.field__button .icon-search{
+    color: black;
+}
 .cwr-header{
     position: relative;
 }
@@ -4649,6 +4658,7 @@ footer{
     padding: 10px 15px;
     transform: scale(0);
     transition: all 0.35s ease-in-out;
+    pointer-events: none;
 }
 .cwr-our-product__box--collections:hover .cwr-our-product__box-cta {
     transform: scale(1);

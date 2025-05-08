@@ -93,6 +93,7 @@ a:hover {
     padding: 21.3px 20px;
     background-color: var(--color-secondary);
     text-transform: uppercase;
+    pointer-events: auto;
 }
 .custom-btn:hover{
     color: var(--color-dark);

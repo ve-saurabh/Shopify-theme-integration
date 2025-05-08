@@ -26,308 +26,337 @@
               {% endif %}
             </div>
             <div class="cwr-faq-main js-faq-main-wrapper">
-              <ul>
-                {% for filter in collection.filters %}
-                  {% if filter.param_name == 'filter.p.tag' %}
-                    {%- assign has_category = false -%}
-                    {%- assign has_brand = false -%}
-                    {%- for value in filter.values %}
-                      {% if value.label contains 'Category:' %}
-                        {%- assign has_category = true -%}
-                      {% endif %}
-                      {% if value.label contains 'Brand:' %}
-                        {%- assign has_brand = true -%}
-                      {% endif %}
-                    {%- endfor -%}
-
-                    {% if has_category %}
-                      <li class="cwr-faq-main__item">
-                        <div class="cwr-faq-main__que cwr-faq-main__que--coll-filter js-faq-main-que">
-                          <h6 class="cwr-title cwr-title--style-6">
-                            {{ filter.label | strip | replace: 'More filters', 'Categories' }}
-                          </h6>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="18"
-                            height="18"
-                            viewBox="0 0 18 18"
-                            fill="none"
-                          >
-                            <path d="M3.6 12.375L9 6.375L14.4 12.375" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                          </svg>
-                        </div>
-                        <div
-                          class="cwr-faq-main__ans cwr-faq-main__ans--coll-filter js-faq-main-ans"
-                          style="display: none;"
-                        >
-                          <fieldset>
-                            {% for value in filter.values %}
-                              {% if value.label contains 'Category:' %}
-                                <div class="cwr-form__field cwr-form__field--check">
-                                  <input
-                                    type="checkbox"
-                                    class="cwr-form__input cwr-form__input--check"
-                                    name="{{ filter.param_name }}"
-                                    id="{{ value.value | handleize }}"
-                                    {% if value.active %}
-                                      checked
-                                    {% endif %}
-                                  >
-                                  <label
-                                    for="{{ value.value | handleize }}"
-                                    class="cwr-form__label cwr-form__label--check"
-                                  >
-                                    {{- value.label | remove: 'Category:' -}}
-                                  </label>
-                                </div>
-                              {% endif %}
-                            {% endfor %}
-                          </fieldset>
-                        </div>
-                      </li>
-                    {% endif %}
-
-                    {% if has_brand %}
-                      <li class="cwr-faq-main__item">
-                        <div class="cwr-faq-main__que cwr-faq-main__que--coll-filter js-faq-main-que">
-                          <h6 class="cwr-title cwr-title--style-6">
-                            {{ filter.label | strip | replace: 'More filters', 'Select Brands' }}
-                          </h6>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="18"
-                            height="18"
-                            viewBox="0 0 18 18"
-                            fill="none"
-                          >
-                            <path d="M3.6 12.375L9 6.375L14.4 12.375" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                          </svg>
-                        </div>
-                        <div
-                          class="cwr-faq-main__ans cwr-faq-main__ans--coll-filter js-faq-main-ans"
-                          style="display: none;"
-                        >
-                          <fieldset>
-                            {% for value in filter.values %}
-                              {% if value.label contains 'Brand:' %}
-                                <div class="cwr-form__field cwr-form__field--check">
-                                  <input
-                                    type="checkbox"
-                                    class="cwr-form__input cwr-form__input--check"
-                                    name="{{ filter.param_name }}"
-                                    id="{{ value.value | handleize }}"
-                                    {% if value.active %}
-                                      checked
-                                    {% endif %}
-                                  >
-                                  <label
-                                    for="{{ value.value | handleize }}"
-                                    class="cwr-form__label cwr-form__label--check"
-                                  >
-                                    {{- value.label | remove: 'Brand:' -}}
-                                  </label>
-                                </div>
-                              {% endif %}
-                            {% endfor %}
-                          </fieldset>
-                        </div>
-                      </li>
-                    {% endif %}
-                  {% endif %}
-
-                  {% if filter.param_name == 'filter.v.option.colors' %}
-                    <li class="cwr-faq-main__item">
-                      <div class="cwr-faq-main__que cwr-faq-main__que--coll-filter js-faq-main-que">
-                        <h6 class="cwr-title cwr-title--style-6">{{ filter.label | strip }}</h6>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                          <path d="M3.6 12.375L9 6.375L14.4 12.375" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                      </div>
-                      <div
-                        class="cwr-faq-main__ans cwr-faq-main__ans--coll-filter js-faq-main-ans"
-                        style="display: none;"
-                      >
-                        <fieldset class="cwr-form__fieldset cwr-form__fieldset--color-variant">
-                          {% for value in filter.values %}
-                            <div class="cwr-form__field cwr-form__field--color-variant">
-                              <input
-                                type="checkbox"
-                                class="cwr-form__input cwr-form__input--color-variant"
-                                name="{{ filter.param_name }}"
-                                id="{{ value.value | handleize }}"
-                                {% if value.active %}
-                                  checked
-                                {% endif %}
-                              >
-                              <label
-                                style="background-color: {{ value.label | strip }}; outline-color: {{ value.label | strip }};"
-                                for="{{ value.value | handleize }}"
-                                class="cwr-form__label cwr-form__label--color-variant"
-                              >
-                                {{ value.label }}
-                              </label>
-                            </div>
-                          {% endfor %}
-                        </fieldset>
-                      </div>
-                    </li>
-                  {% endif %}
-
-                  {% if filter.param_name == 'filter.p.m.custom.volumes' %}
-                    <li class="cwr-faq-main__item">
-                      <div class="cwr-faq-main__que cwr-faq-main__que--coll-filter js-faq-main-que">
-                        <h6 class="cwr-title cwr-title--style-6">{{ filter.label | strip }}</h6>
-                      </div>
-                      <div
-                        class="cwr-faq-main__ans cwr-faq-main__ans--coll-filter js-faq-main-ans"
-                        style="display: none;"
-                      >
-                        <fieldset>
-                          {% for value in filter.values %}
-                            <div class="cwr-form__field cwr-form__field--check">
-                              <input
-                                type="checkbox"
-                                class="cwr-form__input cwr-form__input--check"
-                                name="{{ filter.param_name }}"
-                                id="{{ value.value | handleize }}"
-                                {% if value.active %}
-                                  checked
-                                {% endif %}
-                              >
-                              <label for="{{ value.value | handleize }}" class="cwr-form__label cwr-form__label--check">
-                                {{- value.label -}}
-                              </label>
-                            </div>
-                          {% endfor %}
-                        </fieldset>
-                      </div>
-                    </li>
-                  {% endif %}
-
-                  {% if filter.param_name == 'filter.p.m.custom.deals' %}
-                    <li class="cwr-faq-main__item">
-                      <div class="cwr-faq-main__que cwr-faq-main__que--coll-filter js-faq-main-que">
-                        <h6 class="cwr-title cwr-title--style-6">{{ filter.label | strip }}</h6>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                          <path d="M3.6 12.375L9 6.375L14.4 12.375" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                      </div>
-                      <div
-                        class="cwr-faq-main__ans cwr-faq-main__ans--coll-filter js-faq-main-ans"
-                        style="display: none;"
-                      >
-                        <fieldset>
-                          {% for value in filter.values %}
-                            <div class="cwr-form__field cwr-form__field--check">
-                              <input
-                                type="radio"
-                                class="cwr-form__input cwr-form__input--check"
-                                name="{{ filter.param_name }}"
-                                id="{{ value.value | handleize }}"
-                                {% if value.active %}
-                                  checked
-                                {% endif %}
-                              >
-                              <label for="{{ value.value | handleize }}" class="cwr-form__label cwr-form__label--check">
-                                {{- value.label -}}
-                              </label>
-                            </div>
-                          {% endfor %}
-                        </fieldset>
-                      </div>
-                    </li>
-                  {% endif %}
-
-                  {% if filter.param_name == 'filter.v.option.refill type' %}
-                    <li class="cwr-faq-main__item">
-                      <div class="cwr-faq-main__que cwr-faq-main__que--coll-filter js-faq-main-que">
-                        <h6 class="cwr-title cwr-title--style-6">{{ filter.label | strip }}</h6>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                          <path d="M3.6 12.375L9 6.375L14.4 12.375" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                      </div>
-                      <div
-                        class="cwr-faq-main__ans cwr-faq-main__ans--coll-filter js-faq-main-ans"
-                        style="display: none;"
-                      >
-                        <fieldset>
-                          {% for value in filter.values %}
-                            <div class="cwr-form__field cwr-form__field--check">
-                              <input
-                                type="radio"
-                                class="cwr-form__input cwr-form__input--check"
-                                name="{{ filter.param_name }}"
-                                id="{{ value.value | handleize }}"
-                                {% if value.active %}
-                                  checked
-                                {% endif %}
-                              >
-                              <label for="{{ value.value | handleize }}" class="cwr-form__label cwr-form__label--check">
-                                {{- value.label -}}
-                              </label>
-                            </div>
-                          {% endfor %}
-                        </fieldset>
-                      </div>
-                    </li>
-                  {% endif %}
-
-                  {% if filter.param_name == 'filter.v.option.paint finish' %}
-                    <li class="cwr-faq-main__item">
-                      <div class="cwr-faq-main__que cwr-faq-main__que--coll-filter js-faq-main-que">
-                        <h6 class="cwr-title cwr-title--style-6">{{ filter.label | strip }}</h6>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                          <path d="M3.6 12.375L9 6.375L14.4 12.375" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                      </div>
-                      <div
-                        class="cwr-faq-main__ans cwr-faq-main__ans--coll-filter js-faq-main-ans"
-                        style="display: none;"
-                      >
-                        <fieldset>
-                          {% for value in filter.values %}
-                            <div class="cwr-form__field cwr-form__field--check">
-                              <input
-                                type="radio"
-                                class="cwr-form__input cwr-form__input--check"
-                                name="{{ filter.param_name }}"
-                                id="{{ value.value | handleize }}"
-                                value="{{ value.value }}"
-                                {% if value.active %}checked{% endif %}
-                              >
-                              <label for="{{ value.value | handleize }}" class="cwr-form__label cwr-form__label--check">
-                                {{- value.label -}}
-                              </label>
-                            </div>
-                          {% endfor %}
-                        </fieldset>
-                      </div>
-                    </li>
-                  {% endif %}
-
-                  {% if filter.min_value and filter.max_value %}
-                    <li class="cwr-faq-main__item">
-                      <div class="cwr-faq-main__que cwr-faq-main__que--coll-filter js-faq-main-que">
-                        <h6 class="cwr-title cwr-title--style-6">{{ filter.label | strip }}</h6>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                          <path d="M3.6 12.375L9 6.375L14.4 12.375" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                      </div>
-                      <div
-                        class="cwr-faq-main__ans cwr-faq-main__ans--coll-filter js-faq-main-ans"
-                        style="display: none;"
-                      >
-                        <div class="cwr-range-slider">
-                          <div class="cwr-range-slider__value">
-                            <input type="text" id="amount" readonly>
+              {% if collection.filters.size > 0 %}                
+                <ul>
+                  {% for filter in collection.filters %}
+                    {% if filter.param_name == 'filter.p.tag' %}
+                      {%- assign has_category = false -%}
+                      {%- assign has_brand = false -%}
+                      {%- for value in filter.values %}
+                        {% if value.label contains 'Category:' %}
+                          {%- assign has_category = true -%}
+                        {% endif %}
+                        {% if value.label contains 'Brand:' %}
+                          {%- assign has_brand = true -%}
+                        {% endif %}
+                      {%- endfor -%}
+  
+                      {% if has_category %}
+                        <li class="cwr-faq-main__item">
+                          <div class="cwr-faq-main__que cwr-faq-main__que--coll-filter js-faq-main-que">
+                            <h6 class="cwr-title cwr-title--style-6">
+                              {{ filter.label | replace: 'More filters', 'Categories' }}
+                            </h6>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="18"
+                              height="18"
+                              viewBox="0 0 18 18"
+                              fill="none"
+                            >
+                              <path d="M3.6 12.375L9 6.375L14.4 12.375" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
                           </div>
-                          <div id="slider-range" class="cwr-range-slider__bar"></div>
+                          <div
+                            class="cwr-faq-main__ans cwr-faq-main__ans--coll-filter js-faq-main-ans"
+                            style="display: none;"
+                          >
+                            <fieldset>
+                              {% for value in filter.values %}
+                                {% if value.label contains 'Category:' %}
+                                  <div class="cwr-form__field cwr-form__field--check">
+                                    <input
+                                      type="checkbox"
+                                      class="cwr-form__input cwr-form__input--check"
+                                      name="{{ value.param_name }}"
+                                      id="{{ value.value | handleize }}"
+                                      value="{{ value.value }}"
+                                      {% if value.active %}
+                                        checked
+                                      {% endif %}
+                                      {% if value.count == 0 and value.active == false %}
+                                        disabled
+                                      {% endif %}
+                                    >
+                                    <label
+                                      for="{{ value.value | handleize }}"
+                                      class="cwr-form__label cwr-form__label--check"
+                                    >
+                                      {{- value.label | remove: 'Category:' |  strip -}}
+                                    </label>
+                                  </div>
+                                {% endif %}
+                              {% endfor %}
+                            </fieldset>
+                          </div>
+                        </li>
+                      {% endif %}
+  
+                      {% if has_brand %}
+                        <li class="cwr-faq-main__item">
+                          <div class="cwr-faq-main__que cwr-faq-main__que--coll-filter js-faq-main-que">
+                            <h6 class="cwr-title cwr-title--style-6">
+                              {{ filter.label | replace: 'More filters', 'Select Brands' }}
+                            </h6>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="18"
+                              height="18"
+                              viewBox="0 0 18 18"
+                              fill="none"
+                            >
+                              <path d="M3.6 12.375L9 6.375L14.4 12.375" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                          </div>
+                          <div
+                            class="cwr-faq-main__ans cwr-faq-main__ans--coll-filter js-faq-main-ans"
+                            style="display: none;"
+                          >
+                            <fieldset>
+                              {% for value in filter.values %}
+                                {% if value.label contains 'Brand:' %}
+                                  <div class="cwr-form__field cwr-form__field--check">
+                                    <input
+                                      type="checkbox"
+                                      class="cwr-form__input cwr-form__input--check"
+                                      name="{{ value.param_name }}"
+                                      id="{{ value.value | handleize }}"
+                                      value="{{ value.value }}"
+                                      {% if value.active %}
+                                        checked
+                                      {% endif %}
+                                      {% if value.count == 0 and value.active == false %}
+                                        disabled
+                                      {% endif %}
+                                    >
+                                    <label
+                                      for="{{ value.value | handleize }}"
+                                      class="cwr-form__label cwr-form__label--check"
+                                    >
+                                      {{- value.label | remove: 'Brand:' |  strip -}}
+                                    </label>
+                                  </div>
+                                {% endif %}
+                              {% endfor %}
+                            </fieldset>
+                          </div>
+                        </li>
+                      {% endif %}
+                    {% endif %}
+  
+                    {% if filter.param_name == 'filter.v.option.colors' %}
+                      <li class="cwr-faq-main__item">
+                        <div class="cwr-faq-main__que cwr-faq-main__que--coll-filter js-faq-main-que">
+                          <h6 class="cwr-title cwr-title--style-6">{{ filter.label | strip }}</h6>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                            <path d="M3.6 12.375L9 6.375L14.4 12.375" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
                         </div>
-                      </div>
-                    </li>
-                  {% endif %}
-                {% endfor %}
-              </ul>
+                        <div
+                          class="cwr-faq-main__ans cwr-faq-main__ans--coll-filter js-faq-main-ans"
+                          style="display: none;"
+                        >
+                          <fieldset class="cwr-form__fieldset cwr-form__fieldset--color-variant">
+                            {% for value in filter.values %}
+                              <div class="cwr-form__field cwr-form__field--color-variant">
+                                <input
+                                  type="checkbox"
+                                  class="cwr-form__input cwr-form__input--color-variant"
+                                  name="{{ filter.param_name }}"
+                                  id="color-variant-{{ forloop.index }}"
+                                  value="{{ value.value }}"
+                                  {% if value.active %}
+                                    checked
+                                  {% endif %}
+                                  {% if value.count == 0 and value.active == false %}
+                                    disabled
+                                  {% endif %}
+                                >
+                                <label
+                                  style="background-color: {{ value.value }}; outline-color: {{ value.value }};"
+                                  for="color-variant-{{ forloop.index }}"
+                                  class="cwr-form__label cwr-form__label--color-variant"
+                                >
+                                  {{ value.label }}
+                                </label>
+                              </div>
+                            {% endfor %}
+                          </fieldset>
+                        </div>
+                      </li>
+                    {% endif %}
+  
+                    {% if filter.param_name == 'filter.p.m.custom.volumes' %}
+                      <li class="cwr-faq-main__item">
+                        <div class="cwr-faq-main__que cwr-faq-main__que--coll-filter js-faq-main-que">
+                          <h6 class="cwr-title cwr-title--style-6">{{ filter.label | strip }}</h6>
+                        </div>
+                        <div
+                          class="cwr-faq-main__ans cwr-faq-main__ans--coll-filter js-faq-main-ans"
+                          style="display: none;"
+                        >
+                          <fieldset>
+                            {% for value in filter.values %}
+                              <div class="cwr-form__field cwr-form__field--check">
+                                <input
+                                  type="checkbox"
+                                  class="cwr-form__input cwr-form__input--check"
+                                  name="{{ value.param_name }}"
+                                  id="volume-variant-{{ forloop.index }}"
+                                  value="{{ value.value }}"
+                                  {% if value.active %}
+                                    checked
+                                  {% endif %}
+                                  {% if value.count == 0 and value.active == false %}
+                                    disabled
+                                  {% endif %}
+                                >
+                                <label for="volume-variant-{{ forloop.index }}" class="cwr-form__label cwr-form__label--check">
+                                  {{- value.label -}}
+                                </label>
+                              </div>
+                            {% endfor %}
+                          </fieldset>
+                        </div>
+                      </li>
+                    {% endif %}
+  
+                    {% if filter.param_name == 'filter.p.m.custom.deals' %}
+                      <li class="cwr-faq-main__item">
+                        <div class="cwr-faq-main__que cwr-faq-main__que--coll-filter js-faq-main-que">
+                          <h6 class="cwr-title cwr-title--style-6">{{ filter.label | strip }}</h6>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                            <path d="M3.6 12.375L9 6.375L14.4 12.375" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </div>
+                        <div
+                          class="cwr-faq-main__ans cwr-faq-main__ans--coll-filter js-faq-main-ans"
+                          style="display: none;"
+                        >
+                          <fieldset>
+                            {% for value in filter.values %}
+                              <div class="cwr-form__field cwr-form__field--check">
+                                <input
+                                  type="radio"
+                                  class="cwr-form__input cwr-form__input--check"
+                                  name="{{ value.param_name }}"
+                                  id="deals-variant-{{ forloop.index }}"
+                                  value="{{ value.value }}"
+                                  {% if value.active %}
+                                    checked
+                                  {% endif %}
+                                  {% if value.count == 0 and value.active == false %}
+                                    disabled
+                                  {% endif %}
+                                >
+                                <label for="deals-variant-{{ forloop.index }}" class="cwr-form__label cwr-form__label--check">
+                                  {{- value.label -}}
+                                </label>
+                              </div>
+                            {% endfor %}
+                          </fieldset>
+                        </div>
+                      </li>
+                    {% endif %}
+  
+                    {% if filter.param_name == 'filter.v.option.refill type' %}
+                      <li class="cwr-faq-main__item">
+                        <div class="cwr-faq-main__que cwr-faq-main__que--coll-filter js-faq-main-que">
+                          <h6 class="cwr-title cwr-title--style-6">{{ filter.label | strip }}</h6>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                            <path d="M3.6 12.375L9 6.375L14.4 12.375" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </div>
+                        <div
+                          class="cwr-faq-main__ans cwr-faq-main__ans--coll-filter js-faq-main-ans"
+                          style="display: none;"
+                        >
+                          <fieldset>
+                            {% for value in filter.values %}
+                              <div class="cwr-form__field cwr-form__field--check">
+                                <input
+                                  type="radio"
+                                  class="cwr-form__input cwr-form__input--check"
+                                  name="{{ value.param_name }}"
+                                  id="{{ value.label | handleize }}"
+                                  value="{{ value.value }}"
+                                  {% if value.active %}
+                                    checked
+                                  {% endif %}
+                                  {% if value.count == 0 and value.active == false %}
+                                    disabled
+                                  {% endif %}
+                                >
+                                <label for="{{ value.label | handleize }}" class="cwr-form__label cwr-form__label--check">
+                                  {{- value.label -}}
+                                </label>
+                              </div>
+                            {% endfor %}
+                          </fieldset>
+                        </div>
+                      </li>
+                    {% endif %}
+  
+                    {% if filter.param_name == 'filter.v.option.paint finish' %}
+                      <li class="cwr-faq-main__item">
+                        <div class="cwr-faq-main__que cwr-faq-main__que--coll-filter js-faq-main-que">
+                          <h6 class="cwr-title cwr-title--style-6">{{ filter.label | strip }}</h6>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                            <path d="M3.6 12.375L9 6.375L14.4 12.375" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </div>
+                        <div
+                          class="cwr-faq-main__ans cwr-faq-main__ans--coll-filter js-faq-main-ans"
+                          style="display: none;"
+                        >
+                          <fieldset>
+                            {% for value in filter.values %}
+                              <div class="cwr-form__field cwr-form__field--check">
+                                <input
+                                  type="radio"
+                                  class="cwr-form__input cwr-form__input--check"
+                                  name="{{ value.param_name }}"
+                                  id="{{ value.label | handleize }}"
+                                  value="{{ value.value }}"
+                                  {% if value.active %}checked{% endif %}
+                                  {% if value.count == 0 and value.active == false %}
+                                    disabled
+                                  {% endif %}
+                                >
+                                <label for="{{ value.label | handleize }}" class="cwr-form__label cwr-form__label--check">
+                                  {{- value.label -}}
+                                </label>
+                              </div>
+                            {% endfor %}
+                          </fieldset>
+                        </div>
+                      </li>
+                    {% endif %}
+  
+                    {% if filter.min_value and filter.max_value %}
+                      <li class="cwr-faq-main__item">
+                        <div class="cwr-faq-main__que cwr-faq-main__que--coll-filter js-faq-main-que">
+                          <h6 class="cwr-title cwr-title--style-6">{{ filter.label | strip }}</h6>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                            <path d="M3.6 12.375L9 6.375L14.4 12.375" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </div>
+                        <div
+                          class="cwr-faq-main__ans cwr-faq-main__ans--coll-filter js-faq-main-ans"
+                          style="display: none;"
+                        >
+                          <div class="cwr-range-slider">
+                            <div class="cwr-range-slider__value">
+                              <input type="text" id="amount" readonly>
+                            </div>
+                            <div id="slider-range" class="cwr-range-slider__bar"></div>
+                          </div>
+                        </div>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              {% endif %}
             </div>
             <div class="cwr-collections__secure">
               <div class="cwr-collections__secure-content">
